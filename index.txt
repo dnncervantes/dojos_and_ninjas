@@ -1,0 +1,45 @@
+Query: Create 3 new dojos
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("Tech", NOW(), NOW()),
+("Dev", NOW(), NOW()),
+("Science", NOW(), NOW());
+
+Query: Delete the 3 dojos you just created
+DELETE FROM dojos
+WHERE id <= 3;
+
+Query: Create 3 more dojos
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("Technology", NOW(), NOW()),
+("Developer", NOW(), NOW()),
+("Science Rules", NOW(), NOW());
+
+Query: Create 3 ninjas that belong to the first dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Danniel", "Cervantes", 32, NOW(), NOW(), 4),
+("Sara", "Teddyursa", 28, NOW(), NOW(), 4),
+("Matt", "Flygon", 28, NOW(), NOW(), 4);
+
+Query: Create 3 ninjas that belong to the second dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Ron", "Venasaur", 32, NOW(), NOW(), 5),
+("Myleigh", "Tsareena", 30, NOW(), NOW(), 5),
+("Miko", "Umbreon", 31, NOW(), NOW(), 5);
+
+Query: Create 3 ninjas that belong to the third dojo
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Bill", "Nye", 66, NOW(), NOW(), 6),
+("Neil deGrasse", "Tyson", 63, NOW(), NOW(), 6),
+("Timothy", "Berners-Lee", 66, NOW(), NOW(), 6);
+
+Query: Retrieve all the ninjas from the first dojo
+SELECT * FROM ninjas
+WHERE dojo_id = 4;
+
+Query: Retrieve all the ninjas from the last dojo
+SELECT * FROM ninjas
+WHERE dojo_id = 6;
+
+Query: Retrieve the last ninja's dojo
+SELECT * FROM ninjas
+WHERE id = (SELECT MAX(id) FROM ninjas);
